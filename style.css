@@ -1,0 +1,80 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-image: url(imagen2/descargar\ \(1\).jfif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+h1{
+    margin-top: 50px 0px;
+    text-align: center;
+    font-size: 70px;
+    display: block;
+    color: beige;
+}
+.fotos{
+    width: 100%;
+    margin: 0 auto;
+
+}
+.container::after{
+    /*para q el contenedor muestre elementos aunque estos sean flotantes*/
+    content:"";
+    display: block;
+    height: 0px;
+    clear: both;
+
+}
+.container{
+    width: 90%;
+    margin: 0 9%;
+}
+/*estructura de cada componente(la imagen mas descripcion)*/
+.container div{
+    width: 28%;
+    height: auto;
+    display: inline;/*bloques en linea*/
+    float: left;
+    margin: 0% 3% 0% 0%;
+    padding: 0px;
+}
+
+.container div img{
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 0 10px #666;
+    border: 5px solid #fff;
+}
+/*estructura de la descripcion, por defecto q no se muestre*/
+.container div img~span{
+    width: 100%;
+    display: block;
+    opacity: 0;
+    margin: 0;
+    padding: 2px 5px;
+    color: azure;
+    background: rgb(40, 40, 40);
+    box-shadow: 0 0 10px #666;
+    text-align: center;
+}
+/*se muestre la descripcion al poner el raton encmia de la imagen*/
+.container div img:hover+span{
+    opacity: 1;
+}
+/*establecemos el comportamiento q tendran las imageners al posicionar el cursor encima del contenedor*/
+.container:hover div{
+    opacity: 0.2;
+    transform: scale(0.7);
+    transition: 2s;
+}
+/*espacificar el comportamiento que trandra la imagen seleccionado*/
+.container:hover div:hover{
+    opacity: 1;
+    transform: scale(1);
+}
